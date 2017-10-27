@@ -21,31 +21,35 @@ defaults = {"2","prueba.xlsx"};
         row = inputdlg (prompt_valores,"Ingreso de datos", rowscols,defaults); 
         cantidad_decimales = row{1};
         filename = row{2};
-        puntos = xlsread(filename);
+        matriz_puntos = xlsread(filename);
         while (1)
         opcion_menu_metodo_aproximacion = menuMetodosAproximacion();
         
             switch(opcion_menu_metodo_aproximacion)
-               case 1
-                 funcion_aproximante = aproximacionLineal(cantidad_decimales,puntos);
+               case 1 %Aproximacion-Lineal
+                 funcion_aproximante = aproximacionLineal(cantidad_decimales, matriz_puntos);
                      while(1)
                         opcion_menu_aproximacion = menuAproximacion();
                         
                         switch(opcion_menu_aproximacion)
-                            case 1
-                               msgbox(pritty_print_lineal(funcion_aproximante));
-                            case 2
-                            case 3
-                              
+                            case 1 %Funcion-Aproximante
+                                msgbox(pritty_print_lineal(funcion_aproximante));
+                                
+                            case 2 %Detalle Tabla
+                            case 3 %Grafico
+                                x=  matriz_puntos(:,1);
+                                y0=  matriz_puntos(:,2);
+                                y1=funcion_aproximante(4:end);
+                                graficar(x,y0,y1,"Lineal");
                             case 4 break;
                             otherwise break;
                         endswitch
                      endwhile
                   
-               case 2
-               case 3
-               case 4
-               case 5
+               case 2 %Aproximacion-Cuadratica
+               case 3 %Aproximacion-Exponencial
+               case 4 %Aproximacion-Potencial
+               case 5 %Aproximacion-Hiperbola
                  
                case 6 break;
                otherwise break;
