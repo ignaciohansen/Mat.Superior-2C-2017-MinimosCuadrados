@@ -6,8 +6,7 @@ opcion_menu_principal = 0;
 opcion_menu_metodo_aproximacion = 0;
 opcion_menu_aproximacion = 0;
 
-prompt_valores = {"Cantidad de decimales","Ingrese la ruta del archivo .xsl"};
-defaults = {"2",""};
+prompt_valores = {"Cantidad de decimales","Ingrese el nombre del archivo .xsl"};
 rowscols = [1;1.10];
 
   while (1)
@@ -15,9 +14,10 @@ rowscols = [1;1.10];
      
     switch (opcion_menu_principal)
       case 1
-        raw = inputdlg (prompt_valores,"Ingreso de datos", rowscols, defaults); 
-        filepath = raw{2};
-        Matriz = xlsread(filepath);
+        row = inputdlg (prompt_valores,"Ingreso de datos", rowscols); 
+        cantidad_decimales = row{1};
+        filename = row{2};
+        puntos = xlsread(filename);
         while (1)
         opcion_menu_metodo_aproximacion = menuMetodosAproximacion();
         
