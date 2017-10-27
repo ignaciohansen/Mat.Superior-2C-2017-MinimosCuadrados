@@ -1,10 +1,12 @@
 function [retval] = home (m)
 
+pkg load io;
+
 opcion_menu_principal = 0;
 opcion_menu_metodo_aproximacion = 0;
 opcion_menu_aproximacion = 0;
 
-prompt_valores = {"Cantidad de decimales","Ingrese los puntos (x1,y1);(x2,y2);...;(xn,yn)"};
+prompt_valores = {"Cantidad de decimales","Ingrese la ruta del archivo .xsl"};
 defaults = {"2",""};
 rowscols = [1;1.10];
 
@@ -14,7 +16,8 @@ rowscols = [1;1.10];
     switch (opcion_menu_principal)
       case 1
         raw = inputdlg (prompt_valores,"Ingreso de datos", rowscols, defaults); 
-        
+        filepath = raw{2};
+        Matriz = xlsread(filepath);
         while (1)
         opcion_menu_metodo_aproximacion = menuMetodosAproximacion();
         
