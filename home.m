@@ -47,6 +47,22 @@ defaults = {"2","prueba.xlsx"};
                      endwhile
                   
                case 2 %Aproximacion-Cuadratica
+                 funcion_aproximante = aproximacionParabola(cantidad_decimales,matriz_puntos);
+                      while(1)
+                        opcion_menu_aproximacion = menuAproximacion();
+                        
+                        switch(opcion_menu_aproximacion)
+                            case 1 %Funcion-Aproximante
+                                msgbox(pritty_print_parabola(funcion_aproximante));
+                                
+                            case 2 %Detalle Tabla
+                            case 3 %Grafico
+                                
+                            case 4 break;
+                            otherwise break;
+                        endswitch
+                     endwhile
+                 
                case 3 %Aproximacion-Exponencial
                case 4 %Aproximacion-Potencial
                case 5 %Aproximacion-Hiperbola
