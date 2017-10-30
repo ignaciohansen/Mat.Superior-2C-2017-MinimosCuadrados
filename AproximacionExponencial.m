@@ -1,23 +1,16 @@
-function [retval] = aproximacionExponencial (m)
+
 function [retval] = aproximacionExponencial (decimales,matriz)
 
   matriz_redondeada= trunc(matriz,decimales);
-  
-  double x1;
-  double x2;
-  double y1;
-  double y2;
-  
-  x1= length(matriz_redondeada(:,1));  #cant numeros
-  
-  y1= sum(matriz_redondeada(:,1));  #sumatoria x
-  y2= sum(power(matriz_redondeada(:,1),2));  #sumatoria x^2
- 
-  x2= y1;
- 
-  r1= sum(log(matriz_redondeada(:,2)));  # sumatoria log y
-  r2= sum(matriz_redondeada(:,1).*log(matriz_redondeada(:,2)));  #sumatoria x*log y
 
+  x1 = sum(power(matriz_redondeada(:,1),2)); #Sumatoria x^2
+  x2 = sum(matriz_redondeada(:,1)); #Sumatoria x
+  
+  y1 = x2#Sumatoria x
+  y2 = length(matriz_redondeada(:,1)); #cant numeros
+  
+  r1 = sum(matriz_redondeada(:,1).*log(matriz_redondeada(:,2))); #Sumatoria x*log(y)
+  r2 = sum(log(matriz_redondeada(:,2)));  # sumatoria log y
   
   A= [trunc(x1,decimales),trunc(y1,decimales);trunc(x2,decimales),trunc(y2,decimales)];
   B= [trunc(r1,decimales);trunc(r2,decimales)];
@@ -26,18 +19,21 @@ function [retval] = aproximacionExponencial (decimales,matriz)
   
   p= trunc(p,decimales);
   
-  a= p(1);
-  b= p(2);
-  B= exp(b); # B= e^b
-  f= (B*exp(a*matriz_redondeada(:,1))) #f(x)= Be^ax
+  A = p(1);
+  B = p(2);
+
+  a=A;
+  b=exp(B);
+  
+  coeficientes = [a,b];
+  
+  f = b * exp(a * matriz_redondeada(:,1)) #f(x)= b*e^ax
+
   error= sum(matriz_redondeada(:,2)-f);
   
   f=trunc(f,decimales);
   error= trunc(error,decimales);
  
-  retval= [error,p',f'];
-  
-return;
- 
- endfunction
+  retval= [error,coeficientes,f'];
+
  endfunction

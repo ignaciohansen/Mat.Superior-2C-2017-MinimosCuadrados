@@ -40,12 +40,15 @@ function [retval] = aproximacionParabola (decimales,matriz)
   cuadratico= p(1);
   lineal= p(2);
   independiente= p(3);
+  
+  coeficientes = [cuadratico,lineal,independiente];
+  
   f= independiente+(lineal*matriz_redondeada(:,1))+(cuadratico*power(matriz_redondeada(:,1),2));
   error= sum(matriz_redondeada(:,2)-f);
   
   f=trunc(f,decimales);
   error= trunc(error,decimales);
  
-  retval= [error,p',f'];
+  retval= [error,coeficientes,f'];
  
 endfunction

@@ -20,13 +20,16 @@ function [retval] = aproximacionLineal (decimales,matriz)
   
   lineal= p(1);
   independiente= p(2);
+  
+  coeficientes = [lineal,independiente];
+  
   f= independiente+(lineal*matriz_redondeada(:,1));
   error= sum(matriz_redondeada(:,2)-f);
   
   f=trunc(f,decimales);
   error= trunc(error,decimales);
  
-  retval= [error,p',f'];
+  retval= [error,coeficientes,f'];
   
  
  endfunction

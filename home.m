@@ -10,7 +10,7 @@ prompt_valores = {"Cantidad de decimales","Ingrese el nombre del archivo .xsl"};
 rowscols = [1;1.10];
 
 %TODO: Valores hardcodeados
-defaults = {"2","pruebaCuadratica.xlsx"};
+defaults = {"2","pruebaExponencial.xlsx"};
 
   while (1)
   opcion_menu_principal = menuPrincipal();
@@ -70,13 +70,13 @@ defaults = {"2","pruebaCuadratica.xlsx"};
                  
                case 3 %Aproximacion-Exponencial
                  
-                  funcion_aproximante = aproximacionExponencial(cantidad_decimales,matriz_puntos);
+                  resultado_exponencial = aproximacionExponencial(cantidad_decimales,matriz_puntos);
                       while(1)
                         opcion_menu_aproximacion = menuAproximacion();
                         
                         switch(opcion_menu_aproximacion)
                             case 1 %Funcion-Aproximante
-                                msgbox(pritty_print_exponencial(funcion_aproximante));
+                                msgbox(pritty_print_exponencial(resultado_exponencial));
                                 
                             case 2 %Detalle Tabla
                             case 3 %Grafico
