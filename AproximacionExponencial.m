@@ -3,11 +3,17 @@ function [retval] = aproximacionExponencial (decimales,matriz)
 
   matriz_redondeada= trunc(matriz,decimales);
   
+  double x1;
+  double x2;
+  double y1;
+  double y2;
+  
   x1= length(matriz_redondeada(:,1));  #cant numeros
-  x2= y1;
   
   y1= sum(matriz_redondeada(:,1));  #sumatoria x
   y2= sum(power(matriz_redondeada(:,1),2));  #sumatoria x^2
+ 
+  x2= y1;
  
   r1= sum(log(matriz_redondeada(:,2)));  # sumatoria log y
   r2= sum(matriz_redondeada(:,1).*log(matriz_redondeada(:,2)));  #sumatoria x*log y
