@@ -80,6 +80,10 @@ defaults = {"2","pruebaExponencial.xlsx"};
                                 
                             case 2 %Detalle Tabla
                             case 3 %Grafico
+                                x= matriz_puntos(:,1);
+                                y0= matriz_puntos(:,2);
+                                y1=resultado_exponencial(4:end);
+                                graficar(x,y0,y1,"Exponencial");
                                 
                             case 4 break;
                             otherwise break;
