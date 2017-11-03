@@ -2,7 +2,7 @@ function [retval] = generarTablaHiperbola(decimales,matriz)
 
 matriz_redondeada= trunc(matriz,decimales);
 
-x1 = sum(power(matriz_redondeada(:,1)),-2)); #sumatoria 1/x^2
+x1 = sum(power(matriz_redondeada(:,1)),-2); #sumatoria 1/x^2
 x2 = sum(power(matriz_redondeada(:,1)),-1); #sumatoria 1/x
   
 y1 = x2 #sumatoria 1/x
