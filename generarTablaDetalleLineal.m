@@ -29,7 +29,7 @@ function [retval] = generarTablaDetalleLineal (decimales,matriz)
   x = [matriz_redondeada(:,1);x2]
   xcuadrado = [power(matriz_redondeada(:,1),2);x1]
   y = [matriz_redondeada(:,2);z2]
-  yx = [(matriz_redondeada(:,1).*matriz_redondeada(:,2));x1]
+  yx = [(matriz_redondeada(:,1).*matriz_redondeada(:,2));z1]
   
   #5.Definimos la tabla que contiene en si, la informacion.
   data = [x,y,xcuadrado,yx]
