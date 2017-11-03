@@ -1,5 +1,7 @@
-function [retval] = aproximacionHiperbola (decimales,matriz)
-  
+function [retval] = aproximacionHiperbola(decimales,matriz)
+   # 1/y = b/a + 1/a* x       
+   # Y = B + A*X              Y=1/y,  b/a = B , A= 1/a , b=B*a , a=1/A
+   # y = 1/B + 1/A*1/X          a/b = 1/B  a= 1/A 
   matriz_redondeada= trunc(matriz,decimales);
   
   x1 = sum(power(matriz_redondeada(:,1)),-2)); #sumatoria 1/x^2
@@ -20,12 +22,12 @@ function [retval] = aproximacionHiperbola (decimales,matriz)
   A= p(1);
   B= p(2);
   
-  a=1/B;
-  b=A*B;
+  a=1/A;
+  b=B/A;
   
   coeficientes = [a,b];
  
-  f= ((a*(matriz_redondeada(:,1)))/(b+matriz_redondeada(:,1))); #f(x)= a*x/b+x
+  f= ((a/(b+matriz_redondeada(:,1))); #f(x)= a / b+x
   error= sum(matriz_redondeada(:,2)-f);
   
   f=trunc(f,decimales);

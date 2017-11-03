@@ -10,13 +10,15 @@ prompt_valores = {"Cantidad de decimales","Ingrese el nombre del archivo .xsl"};
 rowscols = [1;1.10];
 
 %TODO: Valores hardcodeados
-defaults = {"2","pruebaHiperbola.xlsx"};
+defaults = {"2","pruebaLineal.xlsx"};
 
   while (1)
   opcion_menu_principal = menuPrincipal();
      
+     
     switch (opcion_menu_principal)
       case 1
+        
                                                                      %Hardcodeado
         row = inputdlg (prompt_valores,"Ingreso de datos", rowscols,defaults); 
         cantidad_decimales = row{1};
@@ -37,6 +39,7 @@ defaults = {"2","pruebaHiperbola.xlsx"};
                                 msgbox(pritty_print_lineal(resultado_lineal));
                                 
                             case 2 %Detalle Tabla
+                                generarTablaDetalleLineal(cantidad_decimales,matriz_puntos);
                             case 3 %Grafico
                                 x=  matriz_puntos(:,1);
                                 y0=  matriz_puntos(:,2);
