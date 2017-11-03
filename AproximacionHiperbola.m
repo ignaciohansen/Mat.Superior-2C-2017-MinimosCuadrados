@@ -11,7 +11,7 @@ function [retval] = aproximacionHiperbola(decimales,matriz)
   y2 = length(matriz_redondeada(:,1)); #cant numeros
   
   r1 = sum(power(matriz_redondeada(:,1)),-1).*(power(matriz_redondeada(:,2)),-1); #sumatoria 1/x*1/y
-  r2 = sum(power(matriz_redondeada(:,2)),-1); #sumatoria 1/y
+  r2 = sum(power(matriz_redondeada(:,2),-1); #sumatoria 1/y
 
   A= [trunc(x1,decimales),trunc(y1,decimales);trunc(x2,decimales),trunc(y2,decimales)];
   B= [trunc(r1,decimales);trunc(r2,decimales)];
