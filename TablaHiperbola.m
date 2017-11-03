@@ -8,8 +8,8 @@ x2 = sum(power(matriz_redondeada(:,1)),-1); #sumatoria 1/x
 y1 = x2 #sumatoria 1/x
 y2 = length(matriz_redondeada(:,1)); #cant numeros
   
-r1 = sum(power(matriz_redondeada(:,1)),-1).*(power(matriz_redondeada(:,2)),-1); #sumatoria 1/x*1/y
-r2 = sum(power(matriz_redondeada(:,2)),-1); #sumatoria 1/y
+r1 = sum((power(matriz_redondeada(:,1),-1)).*(power(matriz_redondeada(:,2),-1))); #sumatoria 1/x*1/y
+r2 = sum(power(matriz_redondeada(:,2),-1)); #sumatoria 1/y
   
 unosobrex=[power(matriz_redondeada(:,1),-1);x2]
 unosobrey=[power(matriz_redondeada(:,2),-1);r2]
