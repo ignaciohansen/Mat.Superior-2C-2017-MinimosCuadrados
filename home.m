@@ -6,11 +6,11 @@ opcion_menu_principal = 0;
 opcion_menu_metodo_aproximacion = 0;
 opcion_menu_aproximacion = 0;
 
-prompt_valores = {"Cantidad de decimales","Ingrese el nombre del archivo .xsl"};
-rowscols = [1;1.10];
+prompt_valores = {"Cantidad de decimales"}; #Faltaria que agregar que seleccione el directorio de output
+rowscols = [1]; #1.10 , se agrega el tamano del textbox
 
-%TODO: Valores hardcodeados
-defaults = {"2","pruebaLineal.xlsx"};
+%TODO; hardcodeado
+defaults = {"2"};
 
   while (1)
   opcion_menu_principal = menuPrincipal();
@@ -19,11 +19,14 @@ defaults = {"2","pruebaLineal.xlsx"};
     switch (opcion_menu_principal)
       case 1
         
+        [filename,filepath] = uigetfile({'*.xlsx';'*.xls';});
+        if filepath==0, error('no file selected'); end
+   
+        matriz_puntos = xlsread( fullfile(filepath,filename) );
                                                                      %Hardcodeado
         row = inputdlg (prompt_valores,"Ingreso de datos", rowscols,defaults); 
         cantidad_decimales = row{1};
-        filename = row{2};
-        matriz_puntos = xlsread(filename);
+        
         while (1)
         opcion_menu_metodo_aproximacion = menuMetodosAproximacion();
         
