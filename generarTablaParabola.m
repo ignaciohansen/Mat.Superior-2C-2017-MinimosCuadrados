@@ -3,15 +3,15 @@ function [retval] = generarTablaParabola(decimales,matriz)
 matriz_redondeada= trunc(matriz,decimales);
 
 x1= length(matriz_redondeada(:,1)); #cant numeros
-x2= y1; 
-x3= z1;
+x2= sum(matriz_redondeada(:,1)); #sumatoria x  
+x3= sum(power(matriz_redondeada(:,1),2));  #sumatoria x^2
   
-y1= sum(matriz_redondeada(:,1)); #sumatoria x
-y2= z1;
-y3= z2; 
+y1= x2; #sumatoria x
+y2= x3; #sumatoria x^2
+y3= sum(power(matriz_redondeada(:,1),3));  #sumatoria x^3
 
-z1=sum(power(matriz_redondeada(:,1),2)); #sumatoria x^2
-z2=sum(power(matriz_redondeada(:,1),3)); #sumatoria x^3
+z1=x3; #sumatoria x^2
+z2=y3; #sumatoria x^3
 z3=sum(power(matriz_redondeada(:,1),4)); #sumatoria x^4
   
 r1= sum(matriz_redondeada(:,2)); #sumatoria y
