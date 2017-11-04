@@ -1,5 +1,5 @@
 
-function [retval] = generarTablaDetalleLineal (decimales,matriz)
+function [retval] = generarTablaLineal (decimales,matriz)
 
   #Dejo bien comentado como se hace esta tabla paso a paso.
 

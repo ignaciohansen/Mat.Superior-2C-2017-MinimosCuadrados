@@ -39,7 +39,7 @@ defaults = {"2","pruebaLineal.xlsx"};
                                 msgbox(pritty_print_lineal(resultado_lineal));
                                 
                             case 2 %Detalle Tabla
-                                generarTablaDetalleLineal(cantidad_decimales,matriz_puntos);
+                                generarTablaLineal(cantidad_decimales,matriz_puntos);
                             case 3 %Grafico
                                 x=  matriz_puntos(:,1);
                                 y0=  matriz_puntos(:,2);
@@ -61,6 +61,7 @@ defaults = {"2","pruebaLineal.xlsx"};
                                 msgbox(pritty_print_parabola(resultado_cuadratico));
                                 
                             case 2 %Detalle Tabla
+                              generarTablaParabola(cantidad_decimales,matriz_puntos);
                             case 3 %Grafico
                                 x= matriz_puntos(:,1);
                                 y0= matriz_puntos(:,2);
@@ -82,6 +83,7 @@ defaults = {"2","pruebaLineal.xlsx"};
                                 msgbox(pritty_print_exponencial(resultado_exponencial));
                                 
                             case 2 %Detalle Tabla
+                                 generarTablaExponencial(cantidad_decimales,matriz_puntos);
                             case 3 %Grafico
                                 x= matriz_puntos(:,1);
                                 y0= matriz_puntos(:,2);
@@ -104,6 +106,7 @@ defaults = {"2","pruebaLineal.xlsx"};
                                 msgbox(pritty_print_potencial(resultado_potencial));
                                 
                             case 2 %Detalle Tabla
+                              generarTablaPotencial(cantidad_decimales,matriz_puntos);
                             case 3 %Grafico
                                 
                                 x= matriz_puntos(:,1);
@@ -127,6 +130,7 @@ defaults = {"2","pruebaLineal.xlsx"};
                                 msgbox(pritty_print_hiperbola(resultado_potencial));
                                 
                             case 2 %Detalle Tabla
+                              generarTablaHiperbola(cantidad_decimales,matriz_puntos);
                             case 3 %Grafico
                                 
                                 x= matriz_puntos(:,1);
