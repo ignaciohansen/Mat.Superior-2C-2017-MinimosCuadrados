@@ -27,6 +27,7 @@ xcuarta=[power(matriz_redondeada(:,1),4);z3]
 xy=[(matriz_redondeada(:,1).*matriz_redondeada(:,2));r2]
 xcuadradoy=[power(matriz_redondeada(:,1),2).*matriz_redondeada(:,2);r3]
 
+ data = [x,y,xcuadrado,xcubo,xcuarta,xy,xcuadradoy] 
   
 Directory = [pwd '\detalle.xlsx']; 
 

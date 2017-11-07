@@ -20,6 +20,8 @@ lnxlny=[log(matriz_redondeada(:,1)).*log(matriz_redondeada(:,2));r1]
   
 Directory = [pwd '\detalle.xlsx']; 
 
+data = [lnx,lny,lnxcuadrado,lnxlny]
+
 data_cells = num2cell(data)
 
 title ={'X=ln(x)','Y=ln(y)','X^2=ln(x)^2','X*Y=ln(x)ln(y)'}

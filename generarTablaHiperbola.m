@@ -18,6 +18,8 @@ unosobrexporunosobrey=[power(matriz_redondeada(:,1),-1).*power(matriz_redondeada
 
 Directory = [pwd '\detalle.xlsx']; 
 
+data = [unosobrex,unosobrey,unosobrexcuadrado,unosobrexporunosobrey]
+
 data_cells = num2cell(data)
 
 title ={'X=1/x','Y=1/y','X^2=1/x^2','XY=1/X*1/Y'}

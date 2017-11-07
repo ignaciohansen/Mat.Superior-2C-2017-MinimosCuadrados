@@ -50,7 +50,8 @@ function [retval] = generarTablaLineal (decimales,matriz)
   
   #10. Mergeamos todo en una sola matrix
   output_matrix = [title; data_cells ; sumatoriasTitle ; sumatorias]
-
+  
+ 
   #11. Hacemos la salida IO para escribir en el archivo excel
   # Es importante el 3er argumento. Es el que crea la pestana dentro del .xlsx
   # Debe llevar el nombre de la aproximacion realizada

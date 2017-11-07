@@ -13,6 +13,7 @@ rowscols = [1]; #1.10 , se agrega el tamano del textbox
 defaults = {"2"};
 
   while (1)
+ 
   opcion_menu_principal = menuPrincipal();
      
      

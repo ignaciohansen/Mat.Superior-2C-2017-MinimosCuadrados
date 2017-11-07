@@ -16,7 +16,8 @@ xcuadrado=[power(matriz_redondeada(:,1),2);x1]
 lny=[log(matriz_redondeada(:,2));r2]
 xlny=[matriz_redondeada(:,1).*log(matriz_redondeada(:,2));r1]
 
-  
+data = [x,xcuadrado,lny,xlny] 
+ 
 Directory = [pwd '\detalle.xlsx']; 
 
 data_cells = num2cell(data)
