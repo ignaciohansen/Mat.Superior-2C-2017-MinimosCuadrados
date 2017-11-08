@@ -57,6 +57,10 @@ function [retval] = generarTablaLineal (decimales,matriz)
   # Debe llevar el nombre de la aproximacion realizada
   xlswrite(Directory,output_matrix,"Lineal")
   
+  sistemaEcuaciones = sprintf(strcat(num2str(x1),'*a + ',num2str(x2),'*b =',num2str(z1),'\n',
+                           num2str(x2),'*a + ',num2str(y2),'*b =',num2str(z2)));
+  msgbox(sistemaEcuaciones,'Sistema de ecuaciones linel')
+  
   #Importante considerar que el xlswrite no limpia el archivo y luego escribe, sino que solo escribe.
 
 endfunction
