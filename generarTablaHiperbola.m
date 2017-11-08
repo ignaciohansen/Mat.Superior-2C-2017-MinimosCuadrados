@@ -1,4 +1,4 @@
-function [retval] = generarTablaHiperbola(decimales,matriz)
+function [retval] = generarTablaHiperbola(decimales,matriz,fullfile)
 
 matriz_redondeada= trunc(matriz,decimales);
 
@@ -16,7 +16,6 @@ unosobrey=[power(matriz_redondeada(:,2),-1);r2]
 unosobrexcuadrado=[power(matriz_redondeada(:,1),-2);x1]
 unosobrexporunosobrey=[power(matriz_redondeada(:,1),-1).*power(matriz_redondeada(:,2),-1);r1]
 
-Directory = [pwd '\detalle.xlsx']; 
 
 data = [unosobrex,unosobrey,unosobrexcuadrado,unosobrexporunosobrey]
 
@@ -30,7 +29,7 @@ sumatorias =  {x2,r2,x1,r1}
 
 output_matrix = [title; data_cells ; sumatoriasTitle ; sumatorias]
 
- xlswrite(Directory,output_matrix,"Hiperbola")
+ xlswrite(fullfile,output_matrix,"Hiperbola")
  
   sistemaEcuaciones = sprintf(strcat(num2str(x1),'*a + ',num2str(x2),'*b =',num2str(r1),'\n',
                            num2str(x2),'*a + ',num2str(y2),'*b =',num2str(r2)))

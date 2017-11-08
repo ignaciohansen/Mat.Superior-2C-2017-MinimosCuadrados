@@ -1,4 +1,4 @@
-function [retval] = generarTablaPotencial(decimales,matriz)
+function [retval] = generarTablaPotencial(decimales,matriz,fullfile)
 
 matriz_redondeada= trunc(matriz,decimales);
 
@@ -17,8 +17,6 @@ lny=[log(matriz_redondeada(:,2));r2]
 lnxcuadrado=[power(log(matriz_redondeada(:,1)),2);x1]
 lnxlny=[log(matriz_redondeada(:,1)).*log(matriz_redondeada(:,2));r1]
 
-  
-Directory = [pwd '\detalle.xlsx']; 
 
 data = [lnx,lny,lnxcuadrado,lnxlny]
 
@@ -32,7 +30,7 @@ sumatorias =  {x2,r2,x1,r1}
 
 output_matrix = [title; data_cells ; sumatoriasTitle ; sumatorias]
 
- xlswrite(Directory,output_matrix,"Potencial")
+ xlswrite(fullfile,output_matrix,"Potencial")
  
 
   sistemaEcuaciones = sprintf(strcat(num2str(x1),'*a + ',num2str(x2),'*b =',num2str(r1),'\n',

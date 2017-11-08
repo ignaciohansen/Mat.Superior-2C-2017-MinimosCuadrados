@@ -1,4 +1,4 @@
-function [retval] = generarTablaParabola(decimales,matriz)
+function [retval] = generarTablaParabola(decimales,matriz,fullfile)
 
 matriz_redondeada= trunc(matriz,decimales);
 
@@ -28,8 +28,7 @@ xy=[(matriz_redondeada(:,1).*matriz_redondeada(:,2));r2]
 xcuadradoy=[power(matriz_redondeada(:,1),2).*matriz_redondeada(:,2);r3]
 
  data = [x,y,xcuadrado,xcubo,xcuarta,xy,xcuadradoy] 
-  
-Directory = [pwd '\detalle.xlsx']; 
+
 
 data_cells = num2cell(data)
 
@@ -41,7 +40,7 @@ sumatorias =  {x2,r1,z1,z2,z3,r2,r3}
 
 output_matrix = [title; data_cells ; sumatoriasTitle ; sumatorias]
 
-xlswrite(Directory,output_matrix,"Parabola")
+xlswrite(fullfile,output_matrix,"Parabola")
 
 sistemaEcuaciones = sprintf(strcat(num2str(z3),'*a + ',num2str(z2),'*b +',num2str(z1),'*c =',num2str(r3),'\n',
                             num2str(z2),'*a + ',num2str(z1),'*b +',num2str(x2),'*c =',num2str(r2),'\n',

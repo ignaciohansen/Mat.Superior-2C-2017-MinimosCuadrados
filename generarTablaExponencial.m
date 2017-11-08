@@ -1,4 +1,4 @@
-function [retval] = generarTablaExponencial(decimales,matriz)
+function [retval] = generarTablaExponencial(decimales,matriz,fullfile)
 
 matriz_redondeada= trunc(matriz,decimales);
 
@@ -18,7 +18,7 @@ xlny=[matriz_redondeada(:,1).*log(matriz_redondeada(:,2));r1]
 
 data = [x,xcuadrado,lny,xlny] 
  
-Directory = [pwd '\detalle.xlsx']; 
+
 
 data_cells = num2cell(data)
 
@@ -30,7 +30,7 @@ sumatorias =  {x2,x1,r2,r1}
 
 output_matrix = [title; data_cells ; sumatoriasTitle ; sumatorias]
 
- xlswrite(Directory,output_matrix,"Exponencial")
+ xlswrite(fullfile,output_matrix,"Exponencial")
  
  sistemaEcuaciones = sprintf(strcat(num2str(x1),'*a + ',num2str(x2),'*b =',num2str(r1),'\n',
                            num2str(x2),'*a + ',num2str(y2),'*b =',num2str(r2)));

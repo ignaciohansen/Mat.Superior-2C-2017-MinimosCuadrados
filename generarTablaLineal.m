@@ -1,5 +1,5 @@
 
-function [retval] = generarTablaLineal (decimales,matriz)
+function [retval] = generarTablaLineal (decimales,matriz,fullfile)
 
   #Dejo bien comentado como se hace esta tabla paso a paso.
 
@@ -16,8 +16,6 @@ function [retval] = generarTablaLineal (decimales,matriz)
   z1= sum(matriz_redondeada(:,1).*matriz_redondeada(:,2)); #sumatoria y*x
   z2= sum(matriz_redondeada(:,2)); #sumatoria y
   
-  #3. Es el path absoluto donde va a guarda la tabla. Por ahora dejamos esta, SIEMPRE
-  Directory = [pwd '\detalle.xlsx']; 
 
   
   #4. Asignamos las columnas de la matriz a las variables asociadas
@@ -55,7 +53,7 @@ function [retval] = generarTablaLineal (decimales,matriz)
   #11. Hacemos la salida IO para escribir en el archivo excel
   # Es importante el 3er argumento. Es el que crea la pestana dentro del .xlsx
   # Debe llevar el nombre de la aproximacion realizada
-  xlswrite(Directory,output_matrix,"Lineal")
+  xlswrite(fullfile,output_matrix,"Lineal")
   
   sistemaEcuaciones = sprintf(strcat(num2str(x1),'*a + ',num2str(x2),'*b =',num2str(z1),'\n',
                            num2str(x2),'*a + ',num2str(y2),'*b =',num2str(z2)))

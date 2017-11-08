@@ -9,9 +9,6 @@ opcion_menu_aproximacion = 0;
 prompt_valores = {"Cantidad de decimales"}; #Faltaria que agregar que seleccione el directorio de output
 rowscols = [1]; #1.10 , se agrega el tamano del textbox
 
-%TODO; hardcodeado
-defaults = {"2"};
-
   while (1)
  
   opcion_menu_principal = menuPrincipal();
@@ -19,15 +16,19 @@ defaults = {"2"};
      
     switch (opcion_menu_principal)
       case 1
-        
+        msgbox("Ingrese el archivo donde contiene la matriz de puntos (X;Y)")
         [filename,filepath] = uigetfile({'*.xlsx';'*.xls';});
         if filepath==0, error('no file selected'); end
    
         matriz_puntos = xlsread( fullfile(filepath,filename) );
-                                                                     %Hardcodeado
-        row = inputdlg (prompt_valores,"Ingreso de datos", rowscols,defaults); 
+       
+        msgbox("Ingrese el archivo donde desea obtener el detalle de las sumatorias")
+        [filename_output,filepath_output] = uigetfile({'*.xlsx';'*.xls';});
+        if filepath_output==0, error('no file selected'); end
+                                                                         
+        row = inputdlg (prompt_valores,"Ingreso de datos", rowscols); 
         cantidad_decimales = row{1};
-        
+   
         while (1)
         opcion_menu_metodo_aproximacion = menuMetodosAproximacion();
         
@@ -43,7 +44,9 @@ defaults = {"2"};
                                 msgbox(pritty_print_lineal(resultado_lineal));
                                 
                             case 2 %Detalle Tabla
-                                generarTablaLineal(cantidad_decimales,matriz_puntos);
+                                generarTablaLineal(cantidad_decimales,
+                                                   matriz_puntos,
+                                                   fullfile(filepath_output,filename_output));
                             case 3 %Grafico
                                 x=  matriz_puntos(:,1);
                                 y0=  matriz_puntos(:,2);
@@ -65,7 +68,9 @@ defaults = {"2"};
                                 msgbox(pritty_print_parabola(resultado_cuadratico));
                                 
                             case 2 %Detalle Tabla
-                              generarTablaParabola(cantidad_decimales,matriz_puntos);
+                              generarTablaParabola(cantidad_decimales,
+                                                   matriz_puntos.
+                                                   fullfile(filepath_output,filename_output));
                             case 3 %Grafico
                                 x= matriz_puntos(:,1);
                                 y0= matriz_puntos(:,2);
@@ -87,7 +92,9 @@ defaults = {"2"};
                                 msgbox(pritty_print_exponencial(resultado_exponencial));
                                 
                             case 2 %Detalle Tabla
-                                 generarTablaExponencial(cantidad_decimales,matriz_puntos);
+                                 generarTablaExponencial(cantidad_decimales,
+                                                         matriz_puntos,
+                                                         fullfile(filepath_output,filename_output));
                             case 3 %Grafico
                                 x= matriz_puntos(:,1);
                                 y0= matriz_puntos(:,2);
@@ -110,7 +117,9 @@ defaults = {"2"};
                                 msgbox(pritty_print_potencial(resultado_potencial));
                                 
                             case 2 %Detalle Tabla
-                              generarTablaPotencial(cantidad_decimales,matriz_puntos);
+                              generarTablaPotencial(cantidad_decimales,
+                                                    matriz_puntos,
+                                                    fullfile(filepath_output,filename_output));
                             case 3 %Grafico
                                 
                                 x= matriz_puntos(:,1);
@@ -134,7 +143,9 @@ defaults = {"2"};
                                 msgbox(pritty_print_hiperbola(resultado_potencial));
                                 
                             case 2 %Detalle Tabla
-                              generarTablaHiperbola(cantidad_decimales,matriz_puntos);
+                              generarTablaHiperbola(cantidad_decimales,
+                                                    matriz_puntos,
+                                                    fullfile(filepath_output,filename_output));
                             case 3 %Grafico
                                 
                                 x= matriz_puntos(:,1);
