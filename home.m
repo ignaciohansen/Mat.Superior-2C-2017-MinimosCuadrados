@@ -12,21 +12,30 @@ rowscols = [1]; #1.10 , se agrega el tamano del textbox
   while (1)
  
   opcion_menu_principal = menuPrincipal();
-     
+  
      
     switch (opcion_menu_principal)
       case 1
-        msgbox("Ingrese el archivo donde contiene la matriz de puntos (X;Y)")
+        
+        filepath=0;
+        while(filepath==0)
+        msgbox("Debe ingresar el archivo donde contiene la matriz de puntos (X;Y)")
         [filename,filepath] = uigetfile({'*.xlsx';'*.xls';});
-        if filepath==0, error('no file selected'); end
+        endwhile
    
         matriz_puntos = xlsread( fullfile(filepath,filename) );
        
-        msgbox("Ingrese el archivo donde desea obtener el detalle de las sumatorias")
+        
+        filepath_output=0
+        while(filepath_output==0)
+        msgbox("Debe ingresar el archivo donde desea obtener el detalle de las sumatorias")
         [filename_output,filepath_output] = uigetfile({'*.xlsx';'*.xls';});
-        if filepath_output==0, error('no file selected'); end
-                                                                         
+        endwhile
+        
+        row=[]
+        while(isempty(row))        
         row = inputdlg (prompt_valores,"Ingreso de datos", rowscols); 
+        endwhile
         cantidad_decimales = row{1};
    
         while (1)
@@ -165,6 +174,25 @@ rowscols = [1]; #1.10 , se agrega el tamano del textbox
          endwhile
         
       case 2
+        filepath=0;
+        while(filepath==0)
+        msgbox("Debe ingresar el archivo donde contiene la matriz de puntos (X;Y)")
+        [filename,filepath] = uigetfile({'*.xlsx';'*.xls';});
+        endwhile
+   
+        matriz_puntos = xlsread( fullfile(filepath,filename) );
+       
+        filepath_output=0
+        while(filepath_output==0)
+        msgbox("Debe ingresar el archivo donde desea obtener el detalle de las sumatorias")
+        [filename_output,filepath_output] = uigetfile({'*.xlsx';'*.xls';});
+        endwhile
+                                                                         
+        row = inputdlg (prompt_valores,"Ingreso de datos", rowscols); 
+        cantidad_decimales = row{1};
+        generarTablaComparacion(matriz_puntos,
+                                cantidad_decimales,
+                                fullfile(filepath_output,filename_output))
         
       case 3 break;  
       otherwise break;       

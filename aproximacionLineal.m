@@ -26,6 +26,7 @@ function [retval] = aproximacionLineal (decimales,matriz)
   f= independiente+(lineal*matriz_redondeada(:,1));
   error= sum(matriz_redondeada(:,2)-f);
   
+  
   f=trunc(f,decimales);
   error= trunc(error,decimales);
  
