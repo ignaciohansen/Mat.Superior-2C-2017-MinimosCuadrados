@@ -46,6 +46,6 @@ xlswrite(Directory,output_matrix,"Parabola")
 sistemaEcuaciones = sprintf(strcat(num2str(z3),'*a + ',num2str(z2),'*b +',num2str(z1),'*c =',num2str(r3),'\n',
                             num2str(z2),'*a + ',num2str(z1),'*b +',num2str(x2),'*c =',num2str(r2),'\n',
                             num2str(z1),'*a + ',num2str(z2),'*b +',num2str(x1),'*c =',num2str(r1)));
-  msgbox(sistemaEcuaciones,'Sistema de ecuaciones cuadratico')
+  msgbox(sistemaEcuaciones,'Sistema de ecuaciones')
  
  endfunction

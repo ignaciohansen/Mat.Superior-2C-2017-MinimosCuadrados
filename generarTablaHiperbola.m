@@ -32,4 +32,8 @@ output_matrix = [title; data_cells ; sumatoriasTitle ; sumatorias]
 
  xlswrite(Directory,output_matrix,"Hiperbola")
  
+  sistemaEcuaciones = sprintf(strcat(num2str(x1),'*a + ',num2str(x2),'*b =',num2str(r1),'\n',
+                           num2str(x2),'*a + ',num2str(y2),'*b =',num2str(r2)))
+  msgbox(sistemaEcuaciones,'Sistema de ecuaciones')
+ 
  endfunction
