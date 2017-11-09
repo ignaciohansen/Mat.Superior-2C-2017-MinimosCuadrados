@@ -20,7 +20,10 @@ rowscols = [1]; #1.10 , se agrega el tamano del textbox
         filepath=0;
         while(filepath==0)
         msgbox("Debe ingresar el archivo donde contiene la matriz de puntos (X;Y)")
-        [filename,filepath] = uigetfile({'*.xlsx';'*.xls';});
+        [filename,filepath] = uigetfile(fullfile(pwd,
+                                                  'folder1',
+                                                   '*.xls;*.xlsx'),
+                                                                  'Seleccione el archivo');
         endwhile
    
         matriz_puntos = xlsread( fullfile(filepath,filename) );
@@ -29,7 +32,11 @@ rowscols = [1]; #1.10 , se agrega el tamano del textbox
         filepath_output=0
         while(filepath_output==0)
         msgbox("Debe ingresar el archivo donde desea obtener el detalle de las sumatorias")
-        [filename_output,filepath_output] = uigetfile({'*.xlsx';'*.xls';});
+         msgbox("Debe ingresar el archivo donde desea obtener el detalle de las sumatorias")
+        [filename_output,filepath_output] = uigetfile(fullfile(pwd,
+                                                              'folder1',
+                                                              '*.xls;*.xlsx'),
+                                                                              'Seleccione el archivo');
         endwhile
         
         row=[]
@@ -174,10 +181,16 @@ rowscols = [1]; #1.10 , se agrega el tamano del textbox
          endwhile
         
       case 2
+        
+     
+        
         filepath=0;
         while(filepath==0)
         msgbox("Debe ingresar el archivo donde contiene la matriz de puntos (X;Y)")
-        [filename,filepath] = uigetfile({'*.xlsx';'*.xls';});
+        [filename,filepath] = uigetfile(fullfile(pwd,
+                                                  'folder1',
+                                                   '*.xls;*.xlsx'),
+                                                                  'Seleccione el archivo');
         endwhile
    
         matriz_puntos = xlsread( fullfile(filepath,filename) );
@@ -185,11 +198,18 @@ rowscols = [1]; #1.10 , se agrega el tamano del textbox
         filepath_output=0
         while(filepath_output==0)
         msgbox("Debe ingresar el archivo donde desea obtener el detalle de las sumatorias")
-        [filename_output,filepath_output] = uigetfile({'*.xlsx';'*.xls';});
+        [filename_output,filepath_output] = uigetfile(fullfile(pwd,
+                                                              'folder1',
+                                                              '*.xls;*.xlsx'),
+                                                                              'Seleccione el archivo');
         endwhile
-                                                                         
+                       
+        row=[]
+        while(isempty(row))        
         row = inputdlg (prompt_valores,"Ingreso de datos", rowscols); 
-        cantidad_decimales = row{1};
+        endwhile
+        cantidad_decimales = row{1}
+       
         generarTablaComparacion(matriz_puntos,
                                 cantidad_decimales,
                                 fullfile(filepath_output,filename_output))
