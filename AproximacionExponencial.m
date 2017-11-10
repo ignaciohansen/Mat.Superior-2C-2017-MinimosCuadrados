@@ -29,10 +29,12 @@ function [retval] = aproximacionExponencial (decimales,matriz)
   
   f = b * exp(a * matriz_redondeada(:,1)) #f(x)= b*e^ax
 
-  error= sum(matriz_redondeada(:,2)-f);
+  error= sum(power(f-matriz_redondeada(:,2),2));
   
   f=trunc(f,decimales);
   error= trunc(error,decimales);
+  
+  disp(error)
  
   retval= [error,coeficientes,f'];
 

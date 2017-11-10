@@ -206,7 +206,7 @@ default = {'1'}
                        
         row=[]
         while(isempty(row))        
-        row = inputdlg (prompt_valores,"Ingreso de datos", rowscols); 
+        row = inputdlg (prompt_valores,"Ingreso de datos", rowscols,default); 
         endwhile
         cantidad_decimales = row{1}
        

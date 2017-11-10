@@ -50,7 +50,12 @@ function [retval] = generarTablaComparacion (matriz, cantidad_decimales,fullfile
  xlswrite(fullfile,'Error Modelo 3',"Comparacion",'K2')
  xlswrite(fullfile,'Error Modelo 4',"Comparacion",'L2')
  xlswrite(fullfile,'Error Modelo 5',"Comparacion",'M2')
-  
+ 
+  xlswrite(fullfile,resultado_lineal(1),"Comparacion",'I3')
+  xlswrite(fullfile,resultado_cuadratico(1),"Comparacion",'J3')
+  xlswrite(fullfile,resultado_exponencial(1),"Comparacion",'K3')
+  xlswrite(fullfile,resultado_potencial(1),"Comparacion",'L3')
+  xlswrite(fullfile,resultado_hiperbola(1),"Comparacion",'M3')
   
   xlswrite(fullfile,indices_columna','Comparacion',xlsrango_indices) # Columna de indices
   xlswrite(fullfile,puntosx,"Comparacion",xlsrango_x) #Columna de puntos x

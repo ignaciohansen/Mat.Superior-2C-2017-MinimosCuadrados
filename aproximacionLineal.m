@@ -24,11 +24,15 @@ function [retval] = aproximacionLineal (decimales,matriz)
   coeficientes = [lineal,independiente];
   
   f= independiente+(lineal*matriz_redondeada(:,1));
-  error= sum(matriz_redondeada(:,2)-f);
   
+  
+  error= sum(power(f-matriz_redondeada(:,2),2));
+  
+ 
   
   f=trunc(f,decimales);
   error= trunc(error,decimales);
+  
   
  
   retval= [error,coeficientes,f'];

@@ -26,8 +26,8 @@ function [retval] = aproximacionPotencial (decimales,matriz)
   coeficientes = [a,b];
  
   f= (b*(power(matriz_redondeada(:,1),a))); #f(x)= b*x^a
-  error= sum(matriz_redondeada(:,2)-f);
   
+  error= sum(power(f-matriz_redondeada(:,2),2));
   f=trunc(f,decimales);
   error= trunc(error,decimales);
  

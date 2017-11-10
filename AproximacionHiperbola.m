@@ -27,17 +27,16 @@ function [retval] = AproximacionHiperbola(decimales,matriz)
   
   coeficientes = [a,b];
   
- 
-  f= (a)/(b+matriz_redondeada(:,1)); #f(x)= a / b+x
-  
 
-  error= sum(matriz_redondeada(:,2)-f');
+  f= (a)./(b+(matriz_redondeada(:,1))); #f(x)= a / b+x
   
+  error= sum(power(f-matriz_redondeada(:,2),2))
 
   f=trunc(f,decimales);
   error= trunc(error,decimales);
  
+  disp(error)
  
-  retval= [error,coeficientes,f];
+  retval= [error,coeficientes,f'];
  
  endfunction
