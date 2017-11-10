@@ -3,9 +3,9 @@ function [retval] = generarTablaComparacion (matriz, cantidad_decimales,fullfile
 
   resultado_lineal = aproximacionLineal(cantidad_decimales,matriz)
   resultado_cuadratico = aproximacionParabola(cantidad_decimales,matriz)
-  resultado_exponencial=aproximacionExponencial(cantidad_decimales,matriz)
+  resultado_exponencial=AproximacionExponencial(cantidad_decimales,matriz)
   #resultado_hiperbola=AproximacionHiperbola(cantidad_decimales,matriz)
-  #resultado_potencial=aproximacionPotencial(cantidad_decimales,matriz)
+  #resultado_potencial=AproximacionPotencial(cantidad_decimales,matriz)
   
   matriz_redondeada= trunc(matriz,cantidad_decimales);
   cantidad_puntos= length(matriz_redondeada(:,1)); #cantidad de puntos
