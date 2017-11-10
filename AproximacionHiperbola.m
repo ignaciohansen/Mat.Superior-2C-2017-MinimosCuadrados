@@ -4,19 +4,19 @@ function [retval] = AproximacionHiperbola(decimales,matriz)
    # y = 1/B + 1/A*1/X          a/b = 1/B  a= 1/A 
   matriz_redondeada= trunc(matriz,decimales);
   
-  x1 = sum(power(matriz_redondeada(:,1)),-2); #sumatoria 1/x^2
-  x2 = sum(power(matriz_redondeada(:,1)),-1); #sumatoria 1/x
+  x1 = sum(power(matriz_redondeada(:,1),2)); #sumatoria 1/x^2 """cambie los power de x1 x2 e r1 
+  x2 = sum(power(matriz_redondeada(:,1),1)); #sumatoria 1/x
   
   y1 = x2 #sumatoria 1/x
   y2 = length(matriz_redondeada(:,1)); #cant numeros
   
-  r1 = sum(power(matriz_redondeada(:,1),-1).*(power(matriz_redondeada(:,2),-1))); #sumatoria 1/x*1/y
+  r1 = sum(power(matriz_redondeada(:,1),1).*(power(matriz_redondeada(:,2),-1))); #sumatoria 1/x*1/y
   r2 = sum(power(matriz_redondeada(:,2),-1)); #sumatoria 1/y
 
-  A= [trunc(x1,decimales),trunc(y1,decimales);trunc(x2,decimales),trunc(y2,decimales)];
-  B= [trunc(r1,decimales);trunc(r2,decimales)];
+  P= [trunc(x1,decimales),trunc(y1,decimales);trunc(x2,decimales),trunc(y2,decimales)];
+  R= [trunc(r1,decimales);trunc(r2,decimales)];
   
-  p= inv(A)*B;
+  p= inv(P)*R;
   p= trunc(p,decimales);
   
   A= p(1);
@@ -27,7 +27,7 @@ function [retval] = AproximacionHiperbola(decimales,matriz)
   
   coeficientes = [a,b];
  
-  f= ((a/(b+matriz_redondeada(:,1)))); #f(x)= a / b+x
+  f= a/(b+matriz_redondeada(:,1)); #f(x)= a / b+x
   error= sum(matriz_redondeada(:,2)-f);
   
   f=trunc(f,decimales);

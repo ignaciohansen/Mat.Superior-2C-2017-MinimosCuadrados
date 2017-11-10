@@ -32,7 +32,6 @@ rowscols = [1]; #1.10 , se agrega el tamano del textbox
         filepath_output=0
         while(filepath_output==0)
         msgbox("Debe ingresar el archivo donde desea obtener el detalle de las sumatorias")
-         msgbox("Debe ingresar el archivo donde desea obtener el detalle de las sumatorias")
         [filename_output,filepath_output] = uigetfile(fullfile(pwd,
                                                               'folder1',
                                                               '*.xls;*.xlsx'),
@@ -75,7 +74,7 @@ rowscols = [1]; #1.10 , se agrega el tamano del textbox
                   
                case 2 %Aproximacion-Cuadratica
                 
-                 resultado_cuadratico = aproximacionParabola(cantidad_decimales,matriz_puntos);
+                 resultado_cuadratico = AproximacionParabola(cantidad_decimales,matriz_puntos);
                       while(1)
                         opcion_menu_aproximacion = menuAproximacion();
                         
@@ -85,7 +84,7 @@ rowscols = [1]; #1.10 , se agrega el tamano del textbox
                                 
                             case 2 %Detalle Tabla
                               generarTablaParabola(cantidad_decimales,
-                                                   matriz_puntos.
+                                                   matriz_puntos,
                                                    fullfile(filepath_output,filename_output));
                             case 3 %Grafico
                                 x= matriz_puntos(:,1);
@@ -99,7 +98,7 @@ rowscols = [1]; #1.10 , se agrega el tamano del textbox
                  
                case 3 %Aproximacion-Exponencial
                  
-                  resultado_exponencial = aproximacionExponencial(cantidad_decimales,matriz_puntos);
+                  resultado_exponencial = AproximacionExponencial(cantidad_decimales,matriz_puntos);
                       while(1)
                         opcion_menu_aproximacion = menuAproximacion();
                         
@@ -124,7 +123,7 @@ rowscols = [1]; #1.10 , se agrega el tamano del textbox
                  
                case 4 %Aproximacion-Potencial
                  
-                 resultado_potencial = aproximacionPotencial(cantidad_decimales,matriz_puntos);
+                 resultado_potencial = AproximacionPotencial(cantidad_decimales,matriz_puntos);
                       while(1)
                         opcion_menu_aproximacion = menuAproximacion();
                         
@@ -150,7 +149,7 @@ rowscols = [1]; #1.10 , se agrega el tamano del textbox
                  
                case 5 %Aproximacion-Hiperbola
                  
-                 resultado_hiperbola = aproximacionHiperbola(cantidad_decimales,matriz_puntos);
+                 resultado_hiperbola = AproximacionHiperbola(cantidad_decimales,matriz_puntos);
                       while(1)
                         opcion_menu_aproximacion = menuAproximacion();
                         
