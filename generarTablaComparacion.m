@@ -3,9 +3,9 @@ function [retval] = generarTablaComparacion (matriz, cantidad_decimales,fullfile
 
   resultado_lineal = aproximacionLineal(cantidad_decimales,matriz)
   resultado_cuadratico = aproximacionParabola(cantidad_decimales,matriz)
-  resultado_exponencial=AproximacionExponencial(cantidad_decimales,matriz)
-  #resultado_hiperbola=AproximacionHiperbola(cantidad_decimales,matriz)
-  #resultado_potencial=AproximacionPotencial(cantidad_decimales,matriz)
+  resultado_exponencial=aproximacionExponencial(cantidad_decimales,matriz)
+  resultado_hiperbola=AproximacionHiperbola(cantidad_decimales,matriz)
+  resultado_potencial=aproximacionPotencial(cantidad_decimales,matriz)
   
   matriz_redondeada= trunc(matriz,cantidad_decimales);
   cantidad_puntos= length(matriz_redondeada(:,1)); #cantidad de puntos
@@ -15,8 +15,8 @@ function [retval] = generarTablaComparacion (matriz, cantidad_decimales,fullfile
   funcion_lineal_cells = num2cell(resultado_lineal(4:cantidad_puntos+3))
   funcion_cuadratica_cells = num2cell(resultado_cuadratico(5:cantidad_puntos+4))
   funcion_exponencial_cells = num2cell(resultado_exponencial(4:cantidad_puntos+3))
-  #funcion_potencial_cells = num2cell(resultado_potencial(4:cantidad_puntos+3))
-  #funcion_hiperbola_cells = num2cell(resultado_hiperbola(4:cantidad_puntos+3))
+  funcion_potencial_cells = num2cell(resultado_potencial(4:cantidad_puntos+3))
+  funcion_hiperbola_cells = num2cell(resultado_hiperbola(4:cantidad_puntos+3))
   
    xlsrango_indices = strcat('A3:','A',num2str(cantidad_puntos+3))
    xlsrango_x = strcat('B3:','B',num2str(cantidad_puntos+3))
@@ -58,7 +58,7 @@ function [retval] = generarTablaComparacion (matriz, cantidad_decimales,fullfile
   xlswrite(fullfile,funcion_lineal_cells',"Comparacion",xlsrango_lineal) #Columna de puntos lineal
   xlswrite(fullfile,funcion_cuadratica_cells',"Comparacion",xlsrango_cuadratico) #Columna de puntos cuadratico
   xlswrite(fullfile,funcion_exponencial_cells',"Comparacion",xlsrango_exponencial) #Columna de puntos exponenciales
-  #xlswrite(fullfile,funcion_potencial_cells,"Comparacion",xlsrango_potencial) #Columna de puntos potenciales
-  #xlswrite(fullfile,funcion_hiperbola_cells,"Comparacion",xlsrango_hiperbola) #Columna de puntos de hiperbola
+  xlswrite(fullfile,funcion_potencial_cells',"Comparacion",xlsrango_potencial) #Columna de puntos potenciales
+  xlswrite(fullfile,funcion_hiperbola_cells',"Comparacion",xlsrango_hiperbola) #Columna de puntos de hiperbola
   
 endfunction

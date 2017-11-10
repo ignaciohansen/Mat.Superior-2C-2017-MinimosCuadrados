@@ -1,4 +1,4 @@
-function [retval] = graficar(x0,y0,y1, ttl)
+function [retval] = graficar(x0,y0,y1, tipo_aproximacion)
 
   hold on
 
@@ -6,8 +6,8 @@ function [retval] = graficar(x0,y0,y1, ttl)
   scatter(x0,y0); 
   xlabel("x");
   ylabel("p(x)");
-  ttl = strcat("Aproximacion ",ttl);
-  title (ttl);
+  tipo_aproximacion = strcat("Aproximacion ",tipo_aproximacion);
+  title (tipo_aproximacion);
   
   hold off
 

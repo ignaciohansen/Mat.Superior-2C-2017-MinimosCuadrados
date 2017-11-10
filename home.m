@@ -8,7 +8,7 @@ opcion_menu_aproximacion = 0;
 
 prompt_valores = {"Cantidad de decimales"}; #Faltaria que agregar que seleccione el directorio de output
 rowscols = [1]; #1.10 , se agrega el tamano del textbox
-
+default = {'1'}
   while (1)
  
   opcion_menu_principal = menuPrincipal();
@@ -40,8 +40,9 @@ rowscols = [1]; #1.10 , se agrega el tamano del textbox
         
         row=[]
         while(isempty(row))        
-        row = inputdlg (prompt_valores,"Ingreso de datos", rowscols); 
+        row = inputdlg (prompt_valores,"Ingreso de datos", rowscols,default); 
         endwhile
+        disp(row{1});
         cantidad_decimales = row{1};
    
         while (1)
@@ -74,7 +75,7 @@ rowscols = [1]; #1.10 , se agrega el tamano del textbox
                   
                case 2 %Aproximacion-Cuadratica
                 
-                 resultado_cuadratico = AproximacionParabola(cantidad_decimales,matriz_puntos);
+                 resultado_cuadratico = aproximacionParabola(cantidad_decimales,matriz_puntos);
                       while(1)
                         opcion_menu_aproximacion = menuAproximacion();
                         
@@ -88,9 +89,9 @@ rowscols = [1]; #1.10 , se agrega el tamano del textbox
                                                    fullfile(filepath_output,filename_output));
                             case 3 %Grafico
                                 x= matriz_puntos(:,1);
-                                y0= matriz_puntos(:,2);
+                                y= matriz_puntos(:,2);
                                 y1=resultado_cuadratico(5:end);
-                                graficar(x,y0,y1,"Parabolica");
+                                graficar(x,y,y1,"Parabolica");
                             case 4 break;
                             otherwise break;
                         endswitch
@@ -98,7 +99,7 @@ rowscols = [1]; #1.10 , se agrega el tamano del textbox
                  
                case 3 %Aproximacion-Exponencial
                  
-                  resultado_exponencial = AproximacionExponencial(cantidad_decimales,matriz_puntos);
+                  resultado_exponencial = aproximacionExponencial(cantidad_decimales,matriz_puntos);
                       while(1)
                         opcion_menu_aproximacion = menuAproximacion();
                         
@@ -112,9 +113,9 @@ rowscols = [1]; #1.10 , se agrega el tamano del textbox
                                                          fullfile(filepath_output,filename_output));
                             case 3 %Grafico
                                 x= matriz_puntos(:,1);
-                                y0= matriz_puntos(:,2);
+                                y= matriz_puntos(:,2);
                                 y1=resultado_exponencial(4:end);
-                                graficar(x,y0,y1,"Exponencial");
+                                graficar(x,y,y1,"Exponencial");
                                 
                             case 4 break;
                             otherwise break;
@@ -123,7 +124,7 @@ rowscols = [1]; #1.10 , se agrega el tamano del textbox
                  
                case 4 %Aproximacion-Potencial
                  
-                 resultado_potencial = AproximacionPotencial(cantidad_decimales,matriz_puntos);
+                 resultado_potencial = aproximacionPotencial(cantidad_decimales,matriz_puntos);
                       while(1)
                         opcion_menu_aproximacion = menuAproximacion();
                         
@@ -155,7 +156,7 @@ rowscols = [1]; #1.10 , se agrega el tamano del textbox
                         
                         switch(opcion_menu_aproximacion)
                             case 1 %Funcion-Aproximante
-                                msgbox(pritty_print_hiperbola(resultado_potencial));
+                                msgbox(pritty_print_hiperbola(resultado_hiperbola));
                                 
                             case 2 %Detalle Tabla
                               generarTablaHiperbola(cantidad_decimales,

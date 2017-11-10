@@ -29,6 +29,7 @@ function [retval] = aproximacionLineal (decimales,matriz)
   
   f=trunc(f,decimales);
   error= trunc(error,decimales);
+  
  
   retval= [error,coeficientes,f'];
   
