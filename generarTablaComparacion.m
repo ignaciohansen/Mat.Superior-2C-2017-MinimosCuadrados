@@ -66,4 +66,29 @@ function [retval] = generarTablaComparacion (matriz, cantidad_decimales,fullfile
   xlswrite(fullfile,funcion_potencial_cells',"Comparacion",xlsrango_potencial) #Columna de puntos potenciales
   xlswrite(fullfile,funcion_hiperbola_cells',"Comparacion",xlsrango_hiperbola) #Columna de puntos de hiperbola
   
+  
+  errores=[resultado_lineal(1),
+           resultado_cuadratico(1),
+           resultado_exponencial(1),
+           resultado_potencial(1),
+           resultado_hiperbola(1)]
+  
+  resultado_recomendable = 'El mejor modelo que se adapta al lote de datos ingresado es el : '
+    
+    switch(min(errores))
+      case resultado_lineal(1)
+       resultado_recomendable = strcat(resultado_recomendable,'Lineal con un error=',num2str(resultado_lineal(1)))
+      case resultado_cuadratico(1)
+      resultado_recomendable = strcat(resultado_recomendable,'Cuadratico con un error=',num2str(resultado_cuadratico(1)))
+      case resultado_exponencial(1)
+      resultado_recomendable = strcat(resultado_recomendable,'Exponencial con un error=',num2str(resultado_exponencial(1)))
+      case resultado_potencial(1)
+        resultado_recomendable = strcat(resultado_recomendable,'Potencial con un error=',num2str(resultado_potencial(1)))
+      case resultado_hiperbola(1)
+        resultado_recomendable = strcat(resultado_recomendable,'Hiperbolico con un error=',num2str(resultado_hiperbola(1)))
+    otherwise break;
+    endswitch
+    
+    msgbox(resultado_recomendable,'Resultado Final')
+  
 endfunction
